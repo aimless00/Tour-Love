@@ -17,9 +17,9 @@ const Footer = () => {
                 <input placeholder="Write Your Idea" type="text" />
                 <input type="submit" value="Submit" />
                 <div className="my-2">
-                    <i class="mx-2 fab fa-facebook fs-3"></i>
-                    <i class="mx-2 fab fa-twitter-square fs-3"></i>
-                    <i class="mx-2 fab fa-instagram-square fs-3"></i>
+                    <i className="mx-2 fab fa-facebook fs-3"></i>
+                    <i className="mx-2 fab fa-twitter-square fs-3"></i>
+                    <i className="mx-2 fab fa-instagram-square fs-3"></i>
                 </div>
             </div>
         </div>
