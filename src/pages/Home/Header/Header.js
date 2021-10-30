@@ -17,6 +17,7 @@ const Header = () => {
                             <Link className="nav-link active" aria-current="page" to="/home">Home</Link>
                             <Link className="nav-link active" aria-current="page" to="/addTour">AddTour</Link>
                             <Link className="nav-link active" aria-current="page" to="/myorder">Myorder</Link>
+                            <Link className="nav-link active" aria-current="page" to="/manageOrder">ManageOrder</Link>
                             {!user?.email && <Link className="nav-link active" aria-current="page" to="/login">Login</Link>}
                         </div>
                     </div>

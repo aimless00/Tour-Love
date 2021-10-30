@@ -14,6 +14,7 @@ import Login from './pages/LogIn/Login';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import MayOrder from './pages/MyOrder/MayOrder';
 import OrderDetails from './pages/OrderDetails/OrderDetails';
+import ManageAllOrder from './pages/ManageAllOrder/ManageAllOrder';
 
 function App() {
   return (
@@ -37,9 +38,12 @@ function App() {
             <Route exact path="/myorder">
               <MayOrder></MayOrder>
             </Route>
-            {<Route exact path="/login">
+            <Route exact path="/manageOrder">
+              <ManageAllOrder></ManageAllOrder>
+            </Route>
+            <Route exact path="/login">
               <Login></Login>
-            </Route>}
+            </Route>
           </Switch>
           <Footer></Footer>
         </Router>
