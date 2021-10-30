@@ -6,20 +6,44 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import AddTour from './pages/AddTour/AddTour';
+import Header from './pages/Home/Header/Header';
+import Footer from './pages/Home/Footer/Footer';
+import AuthProvider from './hooks/AuthProvider';
+import Login from './pages/LogIn/Login';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
+import MayOrder from './pages/MyOrder/MayOrder';
+import OrderDetails from './pages/OrderDetails/OrderDetails';
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <Home></Home>
-          </Route>
-          <Route exact path="/home">
-            <Home></Home>
-          </Route>
-        </Switch>
-      </Router>
+      <AuthProvider>
+        <Router>
+          <Header></Header>
+          <Switch>
+            <Route exact path="/">
+              <Home></Home>
+            </Route>
+            <Route exact path="/home">
+              <Home></Home>
+            </Route>
+            <Route exact path="/addTour">
+              <AddTour></AddTour>
+            </Route>
+            <PrivateRoute exact path="/home/:id">
+              <OrderDetails></OrderDetails>
+            </PrivateRoute>
+            <Route exact path="/myorder">
+              <MayOrder></MayOrder>
+            </Route>
+            {<Route exact path="/login">
+              <Login></Login>
+            </Route>}
+          </Switch>
+          <Footer></Footer>
+        </Router>
+      </AuthProvider>
     </div>
   );
 }
