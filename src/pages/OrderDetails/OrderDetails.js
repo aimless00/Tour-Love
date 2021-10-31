@@ -10,12 +10,13 @@ const OrderDetails = () => {
     const { register, handleSubmit, reset } = useForm();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/tours/${id}`)
+        fetch(`https://ghastly-ghost-60094.herokuapp.com/tours/${id}`)
             .then(res => res.json())
             .then(data => setOrder(data))
     }, [id])
     const onSubmit = data => {
-        fetch("http://localhost:5000/orders", {
+        data.status = "Pending "
+        fetch("https://ghastly-ghost-60094.herokuapp.com/orders", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
@@ -24,7 +25,7 @@ const OrderDetails = () => {
             .then(result => {
                 if (result.insertedId) {
                     alert('Order Succesfully')
-                    reset();
+                    reset(data);
                 }
             })
         console.log(data)
@@ -35,27 +36,27 @@ const OrderDetails = () => {
             <h2>Order Review</h2>
             <label htmlFor="name">
                 Name
-                <input className="input" value={user?.displayName} {...register("name")} />
+                <input className="input" defaultValue={user?.displayName} {...register("name")} />
             </label>
             <br />
             <label htmlFor="email">
                 Tour Name
-                <input value={user?.email} className="input" {...register("email", { required: true })} />
+                <input defaultValue={user?.email} className="input" {...register("email")} />
             </label>
             <br />
             <label >
                 Tour Name
-                <input value={order?.name} className="input" {...register("tourName", { required: true })} />
+                <input defaultValue={order?.name} className="input" {...register("tourName")} />
             </label>
             <br />
             <label>
                 Img Link
-                <input value={order?.img} className="input" {...register("img", { required: true })} />
+                <input defaultValue={order?.img} className="input" {...register("img")} />
             </label>
             <br />
             <label>
                 Description:
-                <input value={order?.descrip} className="input" placeholder="description" {...register("despcrip", { required: true })} />
+                <input defaultValue={order?.descrip} className="input" placeholder="description" {...register("despcrip")} />
             </label>
             <br />
             <label>
@@ -63,7 +64,6 @@ const OrderDetails = () => {
                 <input className="input" placeholder="Your Location" {...register("location", { required: true })} />
             </label>
             <br />
-
             <input className="btn btn-primary" type="submit" />
         </form>
     );

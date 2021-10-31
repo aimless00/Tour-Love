@@ -1,11 +1,11 @@
 import React from 'react';
 
 const Order = ({ order }) => {
-    const { name, img, email, _id, tourName, despcrip, location } = order;
+    const { name, img, email, _id, tourName, despcrip, location, status } = order;
 
 
     const handleCancelOrder = id => {
-        const url = `http://localhost:5000/orders/${id}`
+        const url = `https://ghastly-ghost-60094.herokuapp.com/orders/${id}`
         fetch(url, {
             method: 'DELETE'
         })
@@ -14,10 +14,9 @@ const Order = ({ order }) => {
                 console.log(data);
                 if (data.deletedCount) {
                     alert('Your Order has Deleted');
-                    window.location.reload()
+
                 }
             })
-        console.log(id)
 
     }
     return (
@@ -28,7 +27,8 @@ const Order = ({ order }) => {
             <div className="text-start mt-4">
                 <h3>Your Name: {name}</h3>
                 <h5>Order Id: {_id}</h5>
-                <h4>Tour Route: {tourName}</h4>
+                <p>Your Order Status: <span className="text-danger">{status}</span></p>
+                <h6>Tour Route: <span className="text-success">{tourName}</span></h6>
                 <p>Your Email: {email}</p>
                 <p><small>Your Location: {location}</small></p>
                 <p><span className="fs-5 text-center">Description</span>: {despcrip.slice(0, 150)}</p>

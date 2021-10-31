@@ -10,7 +10,7 @@ const MayOrder = () => {
 
     // setSearchOderder(data)
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch('https://ghastly-ghost-60094.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => {
                 const myOrderd = data.filter(order => order.email === user.email);
@@ -18,7 +18,7 @@ const MayOrder = () => {
             })
 
 
-    }, [user])
+    }, [orders])
 
     return (
         <div>

@@ -5,7 +5,7 @@ import './AddTour.css'
 const AddTour = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        fetch("http://localhost:5000/tours", {
+        fetch("https://ghastly-ghost-60094.herokuapp.com/tours", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)

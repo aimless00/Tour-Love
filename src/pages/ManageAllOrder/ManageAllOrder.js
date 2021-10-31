@@ -7,12 +7,11 @@ const ManageAllOrder = () => {
     const [manageOrders, setManageOrder] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch('https://ghastly-ghost-60094.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => setManageOrder(data))
 
-    }, [])
-    console.log(manageOrders);
+    }, [manageOrders])
     return (
         <div className="mx-5 my-5">
             <h3 className="text-primary">Manage All Order</h3>
