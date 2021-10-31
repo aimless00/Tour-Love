@@ -15,6 +15,8 @@ const ContactUs = () => {
                     <br />
                     <p className="mb-0">Write Your Email Here</p>
                     <textarea name="text" id="text" cols="30" rows="4"></textarea>
+                    <br />
+                    <button className="btn btn-success">Send</button>
                     <p className="pb-2"><i className="fas fa-phone fs-5 mx-2"></i>Phone Number: 0178555454</p>
                 </div>
             </div>

@@ -15,6 +15,7 @@ import PrivateRoute from './PrivateRoute/PrivateRoute';
 import MayOrder from './pages/MyOrder/MayOrder';
 import OrderDetails from './pages/OrderDetails/OrderDetails';
 import ManageAllOrder from './pages/ManageAllOrder/ManageAllOrder';
+import PageNotFound from './pages/PageNotFound/PageNotFound';
 
 function App() {
   return (
@@ -43,6 +44,9 @@ function App() {
             </Route>
             <Route exact path="/login">
               <Login></Login>
+            </Route>
+            <Route path="*">
+              <PageNotFound></PageNotFound>
             </Route>
           </Switch>
           <Footer></Footer>
